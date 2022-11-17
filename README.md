@@ -25,7 +25,7 @@ runfile('C:/yourdirectory/test.py', wdir='C:/yourdirectory',args='1000 0.0001 50
 comparison algorithm
 To run, gurobi, you need a license
 
-runfile('C:/yourdirectory/random_sol_knap.py', wdir='C:/yourdirectory',args='1000 0.001 50 1 1 0.99')
+runfile('C:/yourdirectory/random.py', wdir='C:/yourdirectory',args='1000 0.001 50 1 1 0.99')
 runcell(0, 'C:/yourdirectory/gurobi_op_mul.py')
 runfile('C:/yourdirectory/ffh_mul.py', wdir='C:/yourdirectory',args='1000 0.001 50 1 1 0.99')
 
