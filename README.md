@@ -10,7 +10,7 @@ Appl. Sci. 2022, 12(6), 3068; https://doi.org/10.3390/app12063068
 ![image](https://user-images.githubusercontent.com/69515626/199708217-af268d7a-d9eb-4502-979b-0aa87880aca7.png)
 <Figure in the paper>
 
--Create item and knapsack instances
+*Create item and knapsack instances
 
   python RI.py 1000 50 3 10 80
 
@@ -21,17 +21,17 @@ Appl. Sci. 2022, 12(6), 3068; https://doi.org/10.3390/app12063068
   args : # of episode | # of items | # of knapsack 
   | maximum size (v,w) of item | size of the knapsack
 
--Train and test  (in here, the train file should be hard coded in a3c mode)
+*Train and test  (in here, the train file should be hard coded in a3c mode)
 
-  python train.py 1000 0.0001 50 1000 5 0.9999999 0 0 
+  python train.py 1000 0.0001 50 1000 5 0.9999999 0 0 ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34
   
   python test.py 1000 0.0001 50 1 5 0.9999999
   
   args : # of episode learning rate  | # of items | # of repeat the episode 
 
-  |mode op 0 -a2c 1 a3c |  load_op 0 new 1 start from certain model
+  |mode op 0 -a2c 1 a3c |  load_op 0 new 1 start from certain model | train_file name 
                                                                       
--Comparison algorithm
+*Comparison algorithm
 
   python random_sol.py 1000 50 1
   
@@ -44,11 +44,12 @@ Appl. Sci. 2022, 12(6), 3068; https://doi.org/10.3390/app12063068
   
   To run gurobi, you need a license and install as follows (https://support.gurobi.com/hc/en-us/articles/360044290292-How-do-I-install-Gurobi-for-Python-)
 
+a2c
+![image](https://github.com/013giwon/DRLforMKP/assets/69515626/ffbdebc6-e30f-496c-a54f-967f6e332ca0)
 
--test example
-(base) PS C:\Users\Giwon Sur\Documents\DRLforMKP> python test.py 1000 0.0001 50 1000 3 0.9999999
-please write test_File name to open: (Source item)ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34
-please write pt file name to open: a3c_train_1103_18_51_item_50_knap_3_epi_1000_rank_0_epi_999_act.pt
+a3c
+![image](https://github.com/013giwon/DRLforMKP/assets/69515626/a5a10ff2-e8b4-420e-a921-48d0c6735892)
+
 
 I will delete the redundant part ASAP, but the code works well in here.
 **
