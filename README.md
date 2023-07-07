@@ -24,13 +24,13 @@ args : # of episode | # of items | # of knapsack
 
 train and test  (in here, the train file should be hard coded in a3c mode)
 
-python train.py 1000 0.0001 50 1000 5 0.9999999 6 4 0
+python train.py 1000 0.0001 50 1000 5 0.9999999 0 0 
 
-python test.py 1000 0.0001 50 1 5 0.9999999 6 4
+python test.py 1000 0.0001 50 1 5 0.9999999
 
 args : # of episode learning rate  | # of items | # of repeat the episode 
 
-|reward op | |state option|  load_op 
+|mode op 0 -a2c 1 a3c |  load_op 0 new 1 start from certain model
                                                                       
 comparison algorithm
 
@@ -48,6 +48,11 @@ To run gurobi, you need a license and install as follows (https://support.gurobi
   python -m pip install gurobipy 
   or 
   conda install -c gurobi gurobi
-  
+----------------
+test example
+(base) PS C:\Users\Giwon Sur\Documents\DRLforMKP> python test.py 1000 0.0001 50 1000 3 0.9999999 1 0
+please write test_File name to open: (Source item)ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34
+please write pt file name to open: a3c_train_1103_18_51_item_50_knap_3_epi_1000_rank_0_epi_999_act.pt
+
 I will delete the redundant part ASAP, but the code works well in here.
 **
