@@ -34,11 +34,11 @@ args : # of episode learning rate  | # of items | # of repeat the episode
                                                                       
 comparison algorithm
 
-python random_algorithm.py 1000 0.001 50 1 1 0.99
+python random_sol.py 1000 50 1
 
-python ffh_mul.py 1000 0.001 50 1 1 0.99
+python ffh.py 1000 50 1
 
-args : # of episode  |  (learning rate)  |  # of items  |  (#?)  |  # number of knapsack (gamma)
+args : # of episode |  # of items  |  # number of knapsack (gamma)
 
 To run, gurobi, you need a license
 
