@@ -43,49 +43,14 @@ def rargmax(vector):
     indices = np.nonzero(vector == m )[0]
     return random.choice(indices)
 
-# def knap_play(mainDQN, max_episodes, fla, step_max):
-     
-#      states = env3.ENV()
-    
-#      reward_sum = 0
-#      step = 0
-#      if fla == 0:
-#          k = random.randint(0, max_episodes-1)
-#          print("random k is {}".format(k))
-#      else:
-#          k = 190
-#      state = states.reset(k)
-#      while True:
-         
-#          action = np.argmax(mainDQN.predict(state))
-#          state, reward, done  = states.step(state, action)
-#          reward_sum += reward
-#          step+=1
-#          if step > step_max:
-#              done = True         
-#          if done:
-#              print("state: {}".format(state))
-#              print("Total score: {}".format(reward_sum))
-#              break
-
-         
-         
-# def main(max_episodes, greed_num, step_max, train_freq, sample_size, train_iter_freq, length, end_reward):
-#     #max_episodes = 3
-#     max_episodes = int(max_episodes)
-#     greed_num = int(greed_num)
-#     step_max = int(step_max)
-def main(max_episodes, learning_rate, N, R, kc, gamma):   
-    
+def main(max_episodes, N, kc):   
 
     max_episodes = int(max_episodes)
-    learning_rate = float(learning_rate)   
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+  
+    
     N = int(N)
 
     kc = int(kc)
-    gamma = float(gamma)
-    
 
     name = input("please write file name to open: (source item)")
     
@@ -121,10 +86,7 @@ def main(max_episodes, learning_rate, N, R, kc, gamma):
         for j in range(N):
             k_desorder =  np.argsort(-capa)
             for k in range(kc):
-                # print(k_desorder[0,k])
-                # print(capa[0,k_desorder[0,k]])
-                # print(desorder[0,j])
-                # print(overall_item_weight[0,desorder[0,j]])
+
                 if capa[0,k_desorder[0,k]] >= overall_item_weight[i,desorder[0,j]]:
                     capa[0,k_desorder[0,k]] = capa[0,k_desorder[0,k]] - overall_item_weight[i,desorder[0,j]]
                     selected[0,desorder[0,j]] = 1
@@ -151,5 +113,5 @@ def main(max_episodes, learning_rate, N, R, kc, gamma):
     # knap_play(mainDQN , max_episodes,fla, step_max)
          
 if __name__ == "__main__":
-    main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4], sys.argv[5], sys.argv[6])
+    main(sys.argv[1],sys.argv[2],sys.argv[3])
  #   main(50,7,5,7)

@@ -28,15 +28,14 @@ def md1_delay(mu,lamda):
 
 
 
-def main(max_episodes, learning_rate, N, R, kc, gamma):   
+def main(max_episodes, N, kc):   
 
-    max_episodes = int(max_episodes)
-    learning_rate = float(learning_rate)   
+    max_episodes = int(max_episodes) 
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     N = int(N)
 
     kc = int(kc)
-    gamma = float(gamma)
+
 
     name = input("please write file name to open: ")
     with open(name,'rb') as f:
@@ -51,15 +50,8 @@ def main(max_episodes, learning_rate, N, R, kc, gamma):
     t1 = time()
     for i in range(max_episodes): 
     
-        # step_count = 0
-    
-
-        # knap_map = np.zeros((overall_knap_capa[i].copy().size,overall_item_value[0].shape[0]))
-        # knap_capa = overall_knap_capa[i].copy()
         capa = overall_knap_capa[i].copy()
-        # dreq = np.ones(kc)
-        # item_value = overall_item_value[i].copy()
-        # item_weight = overall_item_weight[i].copy()
+
 
         last_state_ca = []
         knap_map_ca = []
@@ -70,7 +62,7 @@ def main(max_episodes, learning_rate, N, R, kc, gamma):
        
             k = random.sample(range(0, N), sn) #choose item to problem instance 0 ~ N-1
             selected = np.zeros((1,N))   
-            # selected[0,k] = 1
+
             for j in range(sn):
                 k_idx = random.randint(0,kc-1)
                 if capa[k_idx] - overall_item_weight[i,k[j]] >= 0:
@@ -95,4 +87,4 @@ def main(max_episodes, learning_rate, N, R, kc, gamma):
         pickle.dump(data, f, pickle.HIGHEST_PROTOCOL) 
         
 if __name__ == "__main__":
-    main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4], sys.argv[5], sys.argv[6])
+    main(sys.argv[1],sys.argv[2],sys.argv[3])
