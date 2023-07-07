@@ -33,9 +33,8 @@ N = sys.argv[3]
 mul = sys.argv[4]
 kc = sys.argv[5]
 gamma = sys.argv[6]
-reward_op = sys.argv[7]
-state_op = sys.argv[8]
-load_op = sys.argv[9]
+mode_op = sys.argv[7]
+load_op = sys.argv[8]
 max_episodes = int(max_episodes)
 learning_rate = float(learning_rate)   
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -43,8 +42,7 @@ N = int(N)
 mul = int(mul)
 kc = int(kc)
 gamma = float(gamma)
-reward_op = int(reward_op)
-state_op = int(state_op)
+mode_op = int(mode_op)
 load_op = int(load_op)
 input_size = N*2 + 3 + kc
 num_of_ac = N
@@ -207,7 +205,7 @@ def train(global_model, rank):
     rList = []
     sList = []
     lList = []
-    envs = env.ENV(N,kc, reward_op, state_op, train_file)
+    envs = env.ENV(N,kc, train_file)
     local_model = ActorCritic(input_size, num_of_ac, N, kc)
     local_model.load_state_dict(global_model.state_dict())
     # local_model = local_model.to(device)
@@ -379,16 +377,17 @@ if __name__ == '__main__':
         name = 'a3c_512_cpu_step_20end_0129_01_35_item_50_knap_3_epi_1000_rank_1_epi_19999_act.pt'
         global_model.load_state_dict(torch.load('./Pt/' + name))
     # global_model = ActorCritic()
-    global_model.share_memory()
  
     processes = []
-# use just call train in a2c
-# train(global_model,0)
-    for rank in range(n_train_processes):
-            p =  mp.Process(target=train, args=(global_model, rank,))
-              
-    
-            p.start()
-            processes.append(p)
-    for p in processes:
-        p.join()
+    # use just call train in a2c
+    if mode_op == 0: #a2c
+      train(global_model,0)
+
+    else: #a3c
+        global_model.share_memory()
+        for rank in range(n_train_processes):
+                p =  mp.Process(target=train, args=(global_model, rank,))       
+                p.start()
+                processes.append(p)
+        for p in processes:
+            p.join()

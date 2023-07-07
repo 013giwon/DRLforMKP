@@ -7,7 +7,6 @@ Created on Fri Oct 29 07:05:07 2021
 """
 
 
-
 import test_env as env
 import torch
 import torch.nn as nn
@@ -34,8 +33,7 @@ N = sys.argv[3]
 mul = sys.argv[4]
 kc = sys.argv[5]
 gamma = sys.argv[6]
-reward_op = sys.argv[7]
-state_op = sys.argv[8]
+
 max_episodes = int(max_episodes)
 learning_rate = float(learning_rate)   
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -43,8 +41,7 @@ N = int(N)
 mul = int(mul)
 kc = int(kc)
 gamma = float(gamma)
-reward_op = int(reward_op)
-state_op = int(state_op)
+
 input_size = N*2 + 3 + kc
 num_of_ac = N
 class ActorCritic(nn.Module):
@@ -138,7 +135,7 @@ def test(global_model):
     knap_map = []
     file = name = input("please write test_File name to open: (Source item)")
     # file = 'ep_1000_item_50_knap_3_R_10_R2_40_data.pickle_220108_16_36'
-    envs = env.ENV(N,kc, reward_op, state_op, file)
+    envs = env.ENV(N,kc, file)
     name = input("please write pt file name to open: ")
     global_model.load_state_dict(torch.load('./Pt/' + name))
  #   global_model.eval()

@@ -38,13 +38,12 @@ class ENV:
     
     rList= []
 
-    def __init__(self,n,k, reward_op, state_op, file, name="main"):
+    def __init__(self,n,k, file, name="main"):
         self.net_name = name
 
         self.N = n 
         self.K = k
-        self.reward_op = reward_op
-        self.state_op = state_op
+
         # name = input("please write file name to open: (source item)")
         with open(file,'rb') as f:
             data = pickle.load(f)

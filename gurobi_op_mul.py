@@ -18,8 +18,6 @@ from time import time
 try:
 # Sample data
  
-    objCoef = [32 , 32 , 15 , 15 , 6 , 6 , 1 , 1 , 1 , 1]
-    knapsackCoef = [16 , 16 , 8 , 8 , 4 , 4 , 2 , 2 , 1 , 1]
 
     name = input("please write file name to open: (source item)")
     
@@ -28,9 +26,7 @@ try:
     overall_item_value = np.array(data.get('value'))
     overall_item_weight = np.array(data.get('weight'))
     overall_knap_capa = np.array(data.get('knapsack'))     
-    Groundset = range (overall_item_value.shape[1])
-    Budget = 30
-    Budget_lst = [30,30]
+
     last_state = []
     # Create initial model
     t1 = time()
