@@ -40,10 +40,14 @@ python ffh.py 1000 50 1
 
 args : # of episode |  # of items  |  # number of knapsack (gamma)
 
-To run, gurobi, you need a license
 
 python gurobi_op_mul.py
 
+To run gurobi, you need a license and install as follows (https://support.gurobi.com/hc/en-us/articles/360044290292-How-do-I-install-Gurobi-for-Python-)
 
+  python -m pip install gurobipy 
+  or 
+  conda install -c gurobi gurobi
+  
 I will delete the redundant part ASAP, but the code works well in here.
 **
