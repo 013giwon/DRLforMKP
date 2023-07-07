@@ -1,30 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan 19 12:47:54 2022
-
-@author: User
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan 19 00:18:35 2022
-
-@author: User
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 17 10:08:00 2022
-
-@author: User
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec  2 20:39:28 2021
-
-@author: User
-"""
 
 # -*- coding: utf-8 -*-
 """
