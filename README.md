@@ -23,13 +23,13 @@ Appl. Sci. 2022, 12(6), 3068; https://doi.org/10.3390/app12063068
 
 *Train and test  (in here, the train file should be hard coded in a3c mode)
 
-  python train.py 1000 0.0001 50 1000 5 0.9999999 0 0 ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34
+  python train.py 1000 0.0001 50 1 3 0.9999999 0 1 ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34 a3c_train_0707_14_58_item_50_knap_3_epi_1000_rank_0_epi_999_act.pt
   
-  python test.py 1000 0.0001 50 1 5 0.9999999
+  python test.py 1000 0.0001 50 1 3 0.9999999
   
   args : # of episode learning rate  | # of items | # of repeat the episode 
 
-  |mode op 0 -a2c 1 a3c |  load_op 0 new 1 start from certain model | train_file name 
+  |mode op 0 -a2c 1 a3c |  load_op 0 new 1 start from certain model | train_file name | model name
                                                                       
 *Comparison algorithm
 
@@ -37,7 +37,7 @@ Appl. Sci. 2022, 12(6), 3068; https://doi.org/10.3390/app12063068
   
   python ffh.py 1000 50 1
   
-  args : # of episode |  # of items  |  # number of knapsack (gamma)
+  args : # of episode |  # of items  |  # number of knapsack 
 
 
   python gurobi_op_mul.py
