@@ -45,12 +45,9 @@ python gurobi_op_mul.py
 
 To run gurobi, you need a license and install as follows (https://support.gurobi.com/hc/en-us/articles/360044290292-How-do-I-install-Gurobi-for-Python-)
 
-  python -m pip install gurobipy 
-  or 
-  conda install -c gurobi gurobi
-----------------
+
 test example
-(base) PS C:\Users\Giwon Sur\Documents\DRLforMKP> python test.py 1000 0.0001 50 1000 3 0.9999999 1 0
+(base) PS C:\Users\Giwon Sur\Documents\DRLforMKP> python test.py 1000 0.0001 50 1000 3 0.9999999
 please write test_File name to open: (Source item)ep_1000_item_50_knap_3_R_10_R2_80_data.pickle_221103_12_34
 please write pt file name to open: a3c_train_1103_18_51_item_50_knap_3_epi_1000_rank_0_epi_999_act.pt
 
