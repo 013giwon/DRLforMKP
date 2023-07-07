@@ -20,10 +20,11 @@ try:
  
     objCoef = [32 , 32 , 15 , 15 , 6 , 6 , 1 , 1 , 1 , 1]
     knapsackCoef = [16 , 16 , 8 , 8 , 4 , 4 , 2 , 2 , 1 , 1]
-    file = 'curve_ep_1000_item_50_knap_5_R_10_R2_40_data.pickle_220207_19_16'
-    with open(file,'rb') as f:
+
+    name = input("please write file name to open: (source item)")
+    
+    with open(name,'rb') as f:
         data = pickle.load(f)
-    name = file
     overall_item_value = np.array(data.get('value'))
     overall_item_weight = np.array(data.get('weight'))
     overall_knap_capa = np.array(data.get('knapsack'))     
